@@ -1,0 +1,11 @@
+{
+  "name": "caf_iot_setup",
+  "description": "CAF web server to configure an IoT device.",
+  "version": "0.0.1",
+  "author": "Antonio Lain <antlai@cafjs.com>",
+  "dependencies": {
+      "express" : "2.X",
+   },
+  "main": "index",
+  "engines": { "node": ">= 0.8.1 " }
+}
