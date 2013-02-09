@@ -5,6 +5,7 @@
   "author": "Antonio Lain <antlai@cafjs.com>",
   "dependencies": {
       "express" : "2.X",
+      "async" : ">=0.1.9"
    },
   "main": "index",
   "engines": { "node": ">= 0.8.1 " }

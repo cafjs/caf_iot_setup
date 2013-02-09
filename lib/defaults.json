@@ -1,0 +1,7 @@
+{
+    "wpaPassword": "pleasechange",
+    "ssid": "test",
+    "deviceId": "123345",
+    "git": "https://github.com/cafjs/caf_examples_helloiot_cli.git",
+    "baseUrl": "http://helloiot.cafjs.com"
+}
