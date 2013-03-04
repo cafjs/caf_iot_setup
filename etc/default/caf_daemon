@@ -1,0 +1,16 @@
+#defaults file for a CAF application daemon
+
+# Root directory for the application
+CAF_HOME=/home/caf
+
+# Subdir in CAF_HOME containing the application
+CAF_APP_REPO_DIR=application
+
+# git repository containing the app
+CAF_APP_REPO=https://github.com/cafjs/caf_examples_helloiot_cli.git
+
+# URL for the CA representing this device/app
+CAF_APP_URL=http://helloiot.cafjs.com/iot/xxxx
+
+
+

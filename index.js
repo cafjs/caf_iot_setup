@@ -15,6 +15,4 @@ limitations under the License.
 */
 
 "use strict";
-var app = module.exports = require('./lib/main');
-
-app.startWS();
+module.exports = require('./lib/main');

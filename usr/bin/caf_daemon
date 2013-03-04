@@ -1,0 +1,55 @@
+#!/bin/bash
+NAME=${NAME:-caf_daemon}
+
+# Read configuration variable file if it is present
+[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
+
+# Read config overrides from CAF_HOME
+[ -r ${CAF_HOME}/${NAME} ] && . ${CAF_HOME}/${NAME}
+
+CAF_APP_REPO_DIR=${CAF_APP_REPO_DIR:-application}
+ 
+echo "GIT setup script called <git repository>" ${CAF_APP_REPO_DIR}
+
+pushd ${CAF_HOME}
+if [ -d ${CAF_APP_REPO_DIR} ]
+then
+    pushd ${CAF_APP_REPO_DIR}
+    CURRENT_APP=`git remote -v | awk '{print $2}' | head -1`
+    if [ ${CAF_APP_REPO} = ${CURRENT_APP} ]
+    then 
+        echo "Update"
+        git pull
+        npm install
+    else
+        echo "Reset and install"
+        cd ..
+        rm -fr ${CAF_APP_REPO_DIR}
+        git clone ${CAF_APP_REPO} ${CAF_APP_REPO_DIR}
+        cd ${CAF_APP_REPO_DIR}
+        npm install
+    fi
+    popd #CAF_APP_REPO_DIR
+else
+    echo "Install"
+    git clone ${CAF_APP_REPO} ${CAF_APP_REPO_DIR}
+    pushd ${CAF_APP_REPO_DIR}
+    npm install
+    popd #CAF_APP_REPO_DIR
+fi
+
+echo "Starting up with URL " ${CAF_APP_URL}
+
+if [ -d ${CAF_APP_REPO_DIR} ]
+then
+    cd ${CAF_APP_REPO_DIR}
+    ./start.js ${CAF_APP_URL}
+    exit $?
+else
+    echo "Error: app not installed"
+    exit 1
+fi
+
+#popd #CAF_HOME
+

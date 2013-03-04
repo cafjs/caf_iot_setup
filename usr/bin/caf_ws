@@ -1,0 +1,29 @@
+#!/bin/bash
+NAME=${NAME:-caf_ws}
+
+# Read configuration variable file if it is present
+[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
+
+# Read config overrides from CAF_HOME
+[ -r ${CAF_HOME}/${NAME} ] && . ${CAF_HOME}/${NAME}
+
+# We need to be able to start the web server without access 
+# to the git server, to enable a network with an access-point mode .
+#  For now, we manage the bootstrap code manually.
+
+echo "Starting up web server" 
+pushd ${CAF_HOME}
+
+if [ -d ${CAF_APP_REPO_DIR} ]
+then
+    cd ${CAF_APP_REPO_DIR}
+    ./start.js 
+    exit $?
+else
+    echo "Error: app not installed"
+    exit 1
+fi
+
+#popd #CAF_HOME
+
