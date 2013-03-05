@@ -17,6 +17,7 @@ pushd ${CAF_HOME}
 
 if [ -d ${CAF_APP_REPO_DIR} ]
 then
+    trap 'kill $(jobs -p)' EXIT
     cd ${CAF_APP_REPO_DIR}
     ./start.js 
     exit $?
