@@ -4,20 +4,12 @@ enyo.kind({
               components:[
                   {kind: "onyx.Toolbar", content: "Configuring IoT device"},
 
-		  {classes: "onyx-setup-divider", content: "Device Id"},
+		  {classes: "onyx-setup-divider", content: "App URL"},
 		  {kind: "onyx.InputDecorator",  classes: "setup-input",
                    components: [
 		       {kind: "onyx.Input", classes: "setup-input",
-                        name: "deviceId",
-                        placeholder: "Enter device id here"}
-		   ]},
-
-		  {classes: "onyx-setup-divider", content: "Service URL"},
-		  {kind: "onyx.InputDecorator",  classes: "setup-input",
-                   components: [
-		       {kind: "onyx.Input", classes: "setup-input",
-                        name: "baseUrl",
-                        placeholder: "Enter base service url  here"}
+                        name: "appUrl",
+                        placeholder: "e.g. http://helloiot.cafjs.com/iot/xxx"}
 		   ]},
 
 		  {classes: "onyx-setup-divider", content: "Git Repository"},
@@ -25,7 +17,7 @@ enyo.kind({
                    components: [
 		       {kind: "onyx.Input", classes: "setup-input",
                         name: "git",
-                        placeholder: "Enter git repository here"}
+                        placeholder: "e.g, https://github.com/cafjs/caf_examples_helloiot_cli.git"}
 		   ]},
 
 		  {classes: "onyx-setup-divider", content: "Wireless SSID"},
@@ -49,7 +41,7 @@ enyo.kind({
 		  {classes: "onyx-setup-divider",
                    content: ""},
 
-		  {kind:"onyx.Button", content: "Do it!",
+		  {kind:"onyx.Button", content: "Reconfigure",
                    style: "height: 70px;", ontap:"doIt"},
                    {classes: "onyx-setup-divider",
                     content: "", name: "result"}
@@ -72,9 +64,8 @@ enyo.kind({
                   if (typeof inResponse === 'object') {
                       this.$.wpaPassword.setValue(inResponse.wpaPassword || "");
                       this.$.ssid.setValue(inResponse.ssid || "");
-                      this.$.deviceId.setValue(inResponse.deviceId || "");
                       this.$.git.setValue(inResponse.git || "");
-                      this.$.baseUrl.setValue(inResponse.baseUrl || "");
+                      this.$.appUrl.setValue(inResponse.appUrl || "");
                       this.render();
                   } else {
                       this.$.result.setContent("App Error:" +
@@ -85,10 +76,9 @@ enyo.kind({
               doIt: function(inSender, inEvent) {
                   var config = {
                       wpaPassword: this.$.wpaPassword.getValue(),
-                      ssid: this.$.ssid.getValue() ,
-                      deviceId: this.$.deviceId.getValue(),
+                      ssid: this.$.ssid.getValue(),
                       git: this.$.git.getValue(),
-                      baseUrl: this.$.baseUrl.getValue()
+                      appUrl: this.$.appUrl.getValue()
                   };
                   var url = location.origin + '/configure';
                   var body = enyo.json.stringify(config);
