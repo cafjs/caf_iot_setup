@@ -1,5 +1,5 @@
 
-/* /home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/layout/fittable/source/FittableLayout.css */
+/* /home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/layout/fittable/source/FittableLayout.css */
 
 .enyo-fittable-rows-layout {
 	position: relative;
@@ -71,7 +71,7 @@
 	margin-bottom: 0 !important;
 }
 
-/* /home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/layout/list/source/List.css */
+/* /home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/layout/list/source/List.css */
 
 .enyo-list {
 	position: relative;
@@ -123,7 +123,7 @@
 	transition: top 0.1s linear, left 0.1s linear;
 }
 
-/* /home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/layout/list/source/PulldownList.css */
+/* /home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/layout/list/source/PulldownList.css */
 
 .enyo-list-pulldown {
 	position: absolute;
@@ -186,7 +186,7 @@
 	-ms-transform: rotate(180deg);
 }
 
-/* /home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/layout/panels/source/arrangers/Arranger.css */
+/* /home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/layout/panels/source/arrangers/Arranger.css */
 
 .enyo-arranger {
 	position: relative;
@@ -215,7 +215,7 @@
 }
 
 
-/* /home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/layout/panels/source/Panels.css */
+/* /home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/layout/panels/source/Panels.css */
 
 .enyo-panels {
 }
@@ -230,7 +230,7 @@
 	}
 }
 
-/* /home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/layout/tree/source/Node.css */
+/* /home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/layout/tree/source/Node.css */
 
 .enyo-node {
 	cursor: default;
@@ -264,7 +264,7 @@
 }
 
 
-/* /home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/layout/imageview/source/ImageViewPin.css */
+/* /home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/layout/imageview/source/ImageViewPin.css */
 
 
 .pinDebug {
@@ -272,7 +272,7 @@
 	border:1px solid yellow;
 }
 
-/* /home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/onyx/css/onyx.less */
+/* /home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/onyx/css/onyx.less */
 
 /* Onyx default parameters defined here */
 /* Fonts */

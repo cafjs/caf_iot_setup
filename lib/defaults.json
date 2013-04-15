@@ -1,6 +1,5 @@
 {
-    "wpaPassword": "pleasechange",
-    "ssid": "test",
-    "git": "https://github.com/cafjs/caf_examples_helloiot_cli.git",
-    "appUrl": "http://helloiot.cafjs.com/iot/12345"
+    "wpaHome": "/etc/wpa_supplicant",
+    "port": 8088,
+    "appConfig": "/home/caf/caf_daemon"
 }

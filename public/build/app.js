@@ -1,7 +1,7 @@
 
 // minifier: path aliases
 
-enyo.path.addPaths({layout: "/home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/layout/", onyx: "/home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/onyx/", onyx: "/home/antlai/git/cloudassistant/caf_iot_setup/public/enyo/../lib/onyx/source/"});
+enyo.path.addPaths({layout: "/home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/layout/", onyx: "/home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/onyx/", onyx: "/home/antlai/git/caf/caf_examples_RPi/caf_iot_setup/public/enyo/../lib/onyx/source/"});
 
 // FittableLayout.js
 
@@ -4426,27 +4426,15 @@ kind: "onyx.Toolbar",
 content: "Configuring IoT device"
 }, {
 classes: "onyx-setup-divider",
-content: "Device Id"
+content: "App URL"
 }, {
 kind: "onyx.InputDecorator",
 classes: "setup-input",
 components: [ {
 kind: "onyx.Input",
 classes: "setup-input",
-name: "deviceId",
-placeholder: "Enter device id here"
-} ]
-}, {
-classes: "onyx-setup-divider",
-content: "Service URL"
-}, {
-kind: "onyx.InputDecorator",
-classes: "setup-input",
-components: [ {
-kind: "onyx.Input",
-classes: "setup-input",
-name: "baseUrl",
-placeholder: "Enter base service url  here"
+name: "appUrl",
+placeholder: "e.g. http://helloiot.cafjs.com/iot/xxx"
 } ]
 }, {
 classes: "onyx-setup-divider",
@@ -4458,7 +4446,7 @@ components: [ {
 kind: "onyx.Input",
 classes: "setup-input",
 name: "git",
-placeholder: "Enter git repository here"
+placeholder: "e.g, https://github.com/cafjs/caf_examples_helloiot_cli.git"
 } ]
 }, {
 classes: "onyx-setup-divider",
@@ -4491,7 +4479,7 @@ classes: "onyx-setup-divider",
 content: ""
 }, {
 kind: "onyx.Button",
-content: "Do it!",
+content: "Reconfigure",
 style: "height: 70px;",
 ontap: "doIt"
 }, {
@@ -4509,15 +4497,14 @@ contentType: "application/json"
 })).response(this, "okDefaults").error(this, "errorAjax").go();
 },
 okDefaults: function(e, t) {
-typeof t == "object" ? (this.$.wpaPassword.setValue(t.wpaPassword || ""), this.$.ssid.setValue(t.ssid || ""), this.$.deviceId.setValue(t.deviceId || ""), this.$.git.setValue(t.git || ""), this.$.baseUrl.setValue(t.baseUrl || ""), this.render()) : this.$.result.setContent("App Error:" + enyo.json.stringify(t));
+typeof t == "object" ? (this.$.wpaPassword.setValue(t.wpaPassword || ""), this.$.ssid.setValue(t.ssid || ""), this.$.git.setValue(t.git || ""), this.$.appUrl.setValue(t.appUrl || ""), this.render()) : this.$.result.setContent("App Error:" + enyo.json.stringify(t));
 },
 doIt: function(e, t) {
 var n = {
 wpaPassword: this.$.wpaPassword.getValue(),
 ssid: this.$.ssid.getValue(),
-deviceId: this.$.deviceId.getValue(),
 git: this.$.git.getValue(),
-baseUrl: this.$.baseUrl.getValue()
+appUrl: this.$.appUrl.getValue()
 }, r = location.origin + "/configure", i = enyo.json.stringify(n), s = (new enyo.Ajax({
 url: r,
 method: "POST",
