@@ -9,7 +9,19 @@ NAME=${NAME:-caf_daemon}
 [ -r ${CAF_HOME}/${NAME} ] && . ${CAF_HOME}/${NAME}
 
 CAF_APP_REPO_DIR=${CAF_APP_REPO_DIR:-application}
- 
+
+echo "Ensure network OK"
+
+NOTDONE=1
+while [ $NOTDONE -gt 0 ]; do
+    if ping -c 1 -W 1 github.com > /dev/null ; then
+        NOTDONE=0
+    else
+        echo "Waiting for network"
+        sleep 1
+    fi
+done
+  
 echo "GIT setup script called <git repository>" ${CAF_APP_REPO_DIR}
 
 pushd ${CAF_HOME}
